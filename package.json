@@ -1,21 +1,21 @@
 {
-  "name": "typescript-action",
-  "description": "GitHub Actions TypeScript template",
+  "name": "action-pr-multi-env-link-expander",
+  "description": "Transforms localhost links in pull request descriptions to corresponding staging/production/etc environment links",
   "version": "0.0.0",
-  "author": "",
+  "author": "caseyWebb",
   "private": true,
-  "homepage": "https://github.com/actions/typescript-action",
+  "homepage": "https://github.com/caseyWebb/action-pr-multi-env-link-expander",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/caseyWebb/action-pr-multi-env-link-expander.git"
   },
   "bugs": {
-    "url": "https://github.com/actions/typescript-action/issues"
+    "url": "https://github.com/caseyWebb/action-pr-multi-env-link-expander/issues"
   },
   "keywords": [
     "actions",
-    "node",
-    "setup"
+    "github",
+    "pull-request"
   ],
   "exports": {
     ".": "./dist/index.js"
