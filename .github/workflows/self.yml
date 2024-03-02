@@ -1,0 +1,17 @@
+name: 'Pull Request Multi-Environment Link Expander'
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  pull_request_multi_environment_link_expander:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Run Action
+        uses: ./
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENVIRONMENTS: '{"staging":"https://staging.example.com","production":"https://example.com"}'
