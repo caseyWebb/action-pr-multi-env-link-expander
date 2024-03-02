@@ -2,7 +2,7 @@
 
 pkgs.mkShell {
   buildInputs = [
-    pkgs.nodejs_21
+    pkgs.nodejs_20
   ];
 
   shellHook = ''
