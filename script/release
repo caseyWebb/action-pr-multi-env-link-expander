@@ -33,9 +33,8 @@ if [[ "$current_branch" != "main" ]]; then
 fi
 
 # Ensure everything is good to go
-npm run all
-if [[ $? -ne 0 ]]; then
-	echo -e "The ${RED}build${OFF} or ${RED}tests${OFF} did not pass"
+if ! npm run all; then
+	echo -e "The ${RED}build${OFF} and/or ${RED}test${OFF} failed"
 	echo -e "Please fix any issues before creating a release"
 	exit 1
 fi

@@ -99,7 +99,7 @@ to manage the development environment. To get started, install Nix and direnv,
 and then run the following command:
 
 ```bash
-$ direnv allow
+direnv allow
 ```
 
 This will install the required dependencies and set up the development
@@ -122,7 +122,7 @@ Pass additional arguments to jest by adding them to the `npm test` command. For
 example,
 
 ```bash
-$ npm test -- --watch
+npm test -- --watch
 ```
 
 ### Publishing a New Release
