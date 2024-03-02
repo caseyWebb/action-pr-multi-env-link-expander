@@ -29160,7 +29160,7 @@ run();
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.transform = exports.localhostRegex = void 0;
-exports.localhostRegex = /(?:\[(.+)\]\()?(https?:\/\/localhost(?::\d*)?)(.*)?\)?/gi;
+exports.localhostRegex = /(?:\[(.+)\]\()?(https?:\/\/localhost(?::\d*)?)(\S*)?\)?/gi;
 const markdownLink = (label, url) => `[${label}](${url})`;
 const markdownLinkForEnvironment = (path = '') => ([environment, host]) => markdownLink(environment, linkForEnvironment(path, [environment, host]));
 const linkForEnvironment = (path = '', [_, host]) => `${host}${path}`;
