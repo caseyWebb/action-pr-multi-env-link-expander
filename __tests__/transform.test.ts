@@ -139,4 +139,17 @@ describe('transform', () => {
     '[My Cool Link](http://localhost?foo=()#bar)',
     '[My Cool Link (Staging)](https://staging.example.com?foo=()#bar) (Open in [Production](https://example.com?foo=()#bar), [Development](http://localhost?foo=()#bar))'
   )
+
+  test(
+    `
+    - [My Cool Link](http://localhost/foo)
+    - [My Other Link](http://localhost/bar)
+    - http://localhost/baz
+  `,
+    `
+    - [My Cool Link (Staging)](https://staging.example.com/foo) (Open in [Production](https://example.com/foo), [Development](http://localhost/foo))
+    - [My Other Link (Staging)](https://staging.example.com/bar) (Open in [Production](https://example.com/bar), [Development](http://localhost/bar))
+    - https://staging.example.com/baz (Open in [Production](https://example.com/baz), [Development](http://localhost/baz))
+  `
+  )
 })
