@@ -1,5 +1,5 @@
 export const localhostRegex =
-  /(?:\[(.+)\]\()?(https?:\/\/localhost(?::\d*)?)(\S*)?\)?/gi
+  /(?<=^|\s)(?:\[(.+?)(?<!Development)\]\(|)(https?:\/\/localhost(?::\d*)?)(\S*)?\)?/gi
 
 const markdownLink = (label: string, url: string): string =>
   `[${label}](${url})`
