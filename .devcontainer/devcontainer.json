@@ -1,10 +1,12 @@
 {
   "name": "GitHub Actions (TypeScript)",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:21",
   "postCreateCommand": "npm install",
   "customizations": {
     "codespaces": {
-      "openFiles": ["README.md"]
+      "openFiles": [
+        "README.md"
+      ]
     },
     "vscode": {
       "extensions": [
