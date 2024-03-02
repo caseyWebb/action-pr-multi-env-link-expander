@@ -58,6 +58,9 @@ on:
   pull_request:
     types: [opened, edited]
 
+permissions:
+  pull-requests: write
+
 jobs:
   expand-localhost-links:
     runs-on: ubuntu-latest

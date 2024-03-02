@@ -3,6 +3,9 @@ on:
   pull_request:
     types: [opened, edited]
 
+permissions:
+  pull-requests: write
+
 jobs:
   pull_request_multi_environment_link_expander:
     runs-on: ubuntu-latest
