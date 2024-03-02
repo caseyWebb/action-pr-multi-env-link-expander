@@ -32,6 +32,14 @@ if [[ "$current_branch" != "main" ]]; then
 	exit 1
 fi
 
+# Ensure the user is up-to-date with the remote
+git fetch
+if [[ -n $(git log HEAD..origin/main --oneline) ]]; then
+	echo -e "The local branch is ${RED}not up-to-date${OFF} with the remote"
+	echo -e "Please pull the latest changes before creating a release"
+	exit 1
+fi
+
 # Ensure everything is good to go
 if ! npm run all; then
 	echo -e "The ${RED}build${OFF} and/or ${RED}test${OFF} failed"
@@ -43,14 +51,6 @@ fi
 if [[ -n $(git status -s) ]]; then
 	echo -e "The working directory is ${RED}not clean${OFF}"
 	echo -e "Please commit all changes before creating a release"
-	exit 1
-fi
-
-# Ensure the user is up-to-date with the remote
-git fetch
-if [[ -n $(git log HEAD..origin/main --oneline) ]]; then
-	echo -e "The local branch is ${RED}not up-to-date${OFF} with the remote"
-	echo -e "Please pull the latest changes before creating a release"
 	exit 1
 fi
 
