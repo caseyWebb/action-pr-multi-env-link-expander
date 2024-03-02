@@ -1,0 +1,24 @@
+name: Pull Request Multi-Environment Link Expander
+description:
+  'Transforms localhost links in pull request descriptions to corresponding
+  staging/production/etc environment links'
+author: 'caseyWebb'
+
+branding:
+  icon: 'edit'
+  color: 'red'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'The GitHub token to use for making API requests'
+    required: true
+  ENVIRONMENTS:
+    description:
+      'JSON object of environment names and their corresponding URLs, e.g.
+      {"staging": "https://staging.example.com", "production":
+      "https://example.com"}'
+    required: true
+
+runs:
+  using: node21
+  main: dist/index.js
