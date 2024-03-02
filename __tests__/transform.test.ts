@@ -152,4 +152,9 @@ describe('transform', () => {
     - https://staging.example.com/baz (Open in [Production](https://example.com/baz), [Development](http://localhost/baz))
   `
   )
+
+  test(
+    'http://localhost/foo http://localhost/bar',
+    'https://staging.example.com/foo (Open in [Production](https://example.com/foo), [Development](http://localhost/foo)) https://staging.example.com/bar (Open in [Production](https://example.com/bar), [Development](http://localhost/bar))'
+  )
 })
