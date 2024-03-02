@@ -35,8 +35,9 @@ describe('localhostRegex', () => {
   })
 
   it('matches markdown localhost URLs', () => {
-    for (const link of links)
+    for (const link of links) {
       expect(`[My Cool Link](${link})`).toMatch(localhostRegex)
+    }
   })
 
   it('does not match invalid/incomplete URLs', () => {
@@ -142,19 +143,29 @@ describe('transform', () => {
 
   test(
     `
+    - http://localhost/baz
     - [My Cool Link](http://localhost/foo)
     - [My Other Link](http://localhost/bar)
-    - http://localhost/baz
   `,
     `
+    - https://staging.example.com/baz (Open in [Production](https://example.com/baz), [Development](http://localhost/baz))
     - [My Cool Link (Staging)](https://staging.example.com/foo) (Open in [Production](https://example.com/foo), [Development](http://localhost/foo))
     - [My Other Link (Staging)](https://staging.example.com/bar) (Open in [Production](https://example.com/bar), [Development](http://localhost/bar))
-    - https://staging.example.com/baz (Open in [Production](https://example.com/baz), [Development](http://localhost/baz))
   `
   )
 
   test(
     'http://localhost/foo http://localhost/bar',
     'https://staging.example.com/foo (Open in [Production](https://example.com/foo), [Development](http://localhost/foo)) https://staging.example.com/bar (Open in [Production](https://example.com/bar), [Development](http://localhost/bar))'
+  )
+
+  test(
+    'https://staging.example.com/foo (Open in [Production](https://example.com/foo), [Development](http://localhost/foo))',
+    'https://staging.example.com/foo (Open in [Production](https://example.com/foo), [Development](http://localhost/foo))'
+  )
+
+  test(
+    '[[whoa]](http://localhost/)',
+    '[[whoa] (Staging)](https://staging.example.com/) (Open in [Production](https://example.com/), [Development](http://localhost/))'
   )
 })
