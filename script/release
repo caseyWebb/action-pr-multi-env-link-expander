@@ -24,6 +24,37 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 
+# Ensure the user is on the main branch
+current_branch=$(git branch --show-current)
+if [[ "$current_branch" != "main" ]]; then
+	echo -e "You are on the ${RED}$current_branch${OFF} branch"
+	echo -e "You must be on the ${BLUE}main${OFF} branch to create a release"
+	exit 1
+fi
+
+# Ensure everything is good to go
+npm run all
+if [[ $? -ne 0 ]]; then
+	echo -e "The ${RED}build${OFF} or ${RED}tests${OFF} did not pass"
+	echo -e "Please fix any issues before creating a release"
+	exit 1
+fi
+
+# Ensure the working directory is clean
+if [[ -n $(git status -s) ]]; then
+	echo -e "The working directory is ${RED}not clean${OFF}"
+	echo -e "Please commit all changes before creating a release"
+	exit 1
+fi
+
+# Ensure the user is up-to-date with the remote
+git fetch
+if [[ -n $(git log HEAD..origin/main --oneline) ]]; then
+	echo -e "The local branch is ${RED}not up-to-date${OFF} with the remote"
+	echo -e "Please pull the latest changes before creating a release"
+	exit 1
+fi
+
 # Get the latest release tag
 latest_tag=$(git describe --tags "$(git rev-list --tags --max-count=1)")
 
