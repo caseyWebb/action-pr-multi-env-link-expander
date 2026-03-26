@@ -5,8 +5,8 @@ updates:
     schedule:
       interval: weekly
     commit-message:
-      prefix: "chore"
-      include: "scope"
+      prefix: 'chore'
+      include: 'scope'
     groups:
       actions-minor:
         update-types:
@@ -18,9 +18,9 @@ updates:
     schedule:
       interval: weekly
     commit-message:
-      prefix: "chore"
-      prefix-development: "chore"
-      include: "scope"
+      prefix: 'chore'
+      prefix-development: 'chore'
+      include: 'scope'
     groups:
       npm-development:
         dependency-type: development
