@@ -10,13 +10,15 @@ permissions:
 
 jobs:
   commitlint:
-    name: Validate PR Title
+    name: Validate Commits
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Validate PR title
+      - name: Validate commits
         uses: wagoid/commitlint-github-action@v6
         with:
           configFile: commitlint.config.js
