@@ -80,7 +80,6 @@ jobs:
 The action requires the following inputs:
 
 - `GITHUB_TOKEN`
-
   - The GitHub token used to authenticate with the GitHub API. This is
     automatically provided by GitHub Actions and does not need to be set
     manually.
