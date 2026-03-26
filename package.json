@@ -38,7 +38,6 @@
   },
   "license": "MIT",
   "jest": {
-    "preset": "ts-jest",
     "verbose": true,
     "clearMocks": true,
     "testEnvironment": "node",
@@ -54,7 +53,7 @@
       "/dist/"
     ],
     "transform": {
-      "^.+\\.ts$": "ts-jest"
+      "^.+\\.ts$": "@swc/jest"
     },
     "coverageReporters": [
       "json-summary",
@@ -76,8 +75,10 @@
     "@commitlint/config-conventional": "^20.5.0",
     "@eslint/js": "^9.39.4",
     "@semantic-release/github": "^12.0.6",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.14.9",
+    "@swc/core": "^1.15.21",
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.12.0",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.57.2",
     "@vercel/ncc": "^0.38.4",
@@ -90,7 +91,6 @@
     "make-coverage-badge": "^1.2.0",
     "prettier": "^3.8.1",
     "semantic-release": "^25.0.3",
-    "ts-jest": "^29.4.6",
     "typescript": "^5.5.2",
     "typescript-eslint": "^8.57.2"
   }
