@@ -27,6 +27,14 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Build dist/
+        run: npm run bundle
+
+      - name: Stage dist/ for release
+        run: |
+          git add -f dist/
+          git commit -m "chore: build dist for release" || true
+
       - name: Release
         id: release
         env:

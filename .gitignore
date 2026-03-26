@@ -97,6 +97,9 @@ Thumbs.db
 # Ignore built ts files
 __tests__/runner/*
 
+# Built action bundle (only included in release tags)
+dist
+
 # IDE files
 .idea
 .vscode
