@@ -118,7 +118,7 @@ PASS  ./index.test.js
 ...
 ```
 
-Pass additional arguments to jest by adding them to the `npm test` command. For
+Pass additional arguments to Jest by adding them to the `npm test` command. For
 example,
 
 ```bash
