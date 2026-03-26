@@ -21,6 +21,7 @@ export default tseslint.config(
     },
     rules: {
       camelcase: 'off',
+      'n/no-missing-import': 'off',
       'no-console': 'off',
       'no-unused-vars': 'off',
       semi: 'off',
