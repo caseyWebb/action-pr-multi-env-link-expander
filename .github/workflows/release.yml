@@ -30,6 +30,11 @@ jobs:
       - name: Build dist/
         run: npm run bundle
 
+      - name: Configure Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Stage dist/ for release
         run: |
           git add -f dist/
